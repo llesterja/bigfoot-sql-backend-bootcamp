@@ -16,10 +16,16 @@ module.exports = (sequelize, DataTypes) => {
   }
   comment.init({
     content: DataTypes.STRING,
-    sighting_id: DataTypes.INTEGER
+    sighting_id: {
+      type:DataTypes.INTEGER,
+      references:{
+        model:"sighting",
+        key: "id",
+    }}
   }, {
     sequelize,
     modelName: 'comment',
+    underscored: true,
   });
   return comment;
 };
