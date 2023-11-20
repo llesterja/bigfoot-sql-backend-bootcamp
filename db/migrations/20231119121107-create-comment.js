@@ -16,7 +16,7 @@ module.exports = {
         references:{
           model:"sightings",
           key:"id"
-        }
+        },
       },
       createdAt: {
         allowNull: false,

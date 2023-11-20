@@ -11,6 +11,8 @@ class SightingsRouter {
     router.get("/:sightingId", this.controller.getOne.bind(this.controller));
     router.delete("/:sightingId", this.controller.removeOne.bind(this.controller));
     router.post("/",this.controller.addNew.bind(this.controller));
+    router.get("/:sightingId/comments", this.controller.getAllComments.bind(this.controller));
+    router.post("/:sightingId/comments", this.controller.addOneComment.bind(this.controller));
     return router;
   }
 }
