@@ -1,6 +1,7 @@
 class BaseController {
   constructor(model) {
     this.model = model;
+    console.log(model);
   }
 
   /* All controllers that extend this BASE controller will have access to the below function **/
@@ -14,6 +15,7 @@ class BaseController {
       return res.status(400).json({ error: true, msg: err });
     }
   }
+
 }
 
 module.exports = BaseController;

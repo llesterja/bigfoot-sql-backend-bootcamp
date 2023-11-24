@@ -3,6 +3,8 @@ const BaseController = require("./baseController");
 class SightingsController extends BaseController {
   constructor(model,commentModel) {
     super(model);
+    console.log(commentModel);
+    this.model = model;
     this.commentModel = commentModel;
   }
 
@@ -10,9 +12,12 @@ class SightingsController extends BaseController {
   async getOne(req, res) {
     const { sightingId } = req.params;
     try {
+      console.log("test")
       const sighting = await this.model.findByPk(sightingId);
+
       return res.json(sighting);
     } catch (err) {
+      console.log(err);
       return res.status(400).json({ error: true, msg: err });
     }
   }
@@ -63,7 +68,7 @@ class SightingsController extends BaseController {
       const {content} = req.body;
       const newComment = await this.commentModel.create({
         content: content,
-        sightingId:sightingId
+        sighting_id:sightingId
       });
       return res.json(newComment);
     } catch (err) {
